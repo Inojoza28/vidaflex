@@ -34,7 +34,7 @@
 - **Node.js** e **npm** instalados
 - **MySQL** instalado e configurado
 
-### Contato
+## Contato
 
 - **Autor**: Gabriel Inojoza
 - **Email**: carlosginojoza@gmail.com
