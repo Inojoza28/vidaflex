@@ -20,17 +20,21 @@
            <i class="fas fa-sign-in-alt"></i> <!-- Ícone de login -->
            <span class="tooltip-text">Fazer Login</span> <!-- Tooltip -->
            </button>
+               <!-- Botão de perfil -->
+           <button class="profile-button" id="profile-button" style="display: none;" onclick="redirecionarParaPerfil()">
+           <i class="fas fa-user-circle"></i>
+           <span class="tooltip-text">Perfil</span>
+           </button>   
         </h1>      
-        <hr>  
+
+        <p class="impact-phrase" id="impact-phrase"></p> <!--Frase de início-->
         
         <!-- Container para saudação e botão de logout, exibido apenas para usuários logados -->
-     <div class="welcome-container" style="display: none;">
-        <p id="boas-vindas">Olá, Usuário!</p> <!-- Texto de boas-vindas -->
-        <button id="logout-button">
-           <i class="fas fa-sign-out-alt"></i> Sair
-        </button> <!-- Botão de logout -->
-     </div>
-
+        <div class="welcome-container" style="display: none;">
+          <p id="boas-vindas" onclick="redirecionarParaPerfil()" style="cursor: pointer;">Olá, Usuário!</p> <!-- Texto de boas-vindas -->
+             <button id="logout-button">
+               <i class="fas fa-sign-out-alt"></i> Sair</button> <!-- Botão de logout -->
+         </div>
 
         <!-- Card 1: Mobilidade Boa -->
         <div class="flip-card">
@@ -82,40 +86,63 @@
     </div>
 
 <script>
- // Script para buscar o nome do usuário e exibir na página
- fetch('/usuario')
-        .then(response => {
-            if (!response.ok) {
-                // Se o usuário não estiver autenticado, não exibe a saudação e exibe o botão de login
-                document.getElementById('login-button').style.display = 'block';
-                return;
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Exibe o nome do usuário e a saudação se estiver logado
-            const boasVindas = document.getElementById('boas-vindas');
-            if (data && boasVindas) {
-                boasVindas.textContent = `👋 Olá, ${data.nome}!`;
-                document.querySelector('.welcome-container').style.display = 'flex'; // Exibe a saudação
-                document.getElementById('login-button').style.display = 'none'; // Oculta o botão de login
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao buscar o nome do usuário:', error);
-        });
+// Script para buscar o nome do usuário e exibir na página
+fetch('/usuario')
+    .then(response => {
+        const impactPhrase = document.getElementById('impact-phrase'); // Busca o elemento da frase
 
-    // Script para o logout
-    document.getElementById('logout-button').addEventListener('click', () => {
-        fetch('/logout')
-            .then(() => window.location.href = 'login.html')
-            .catch(error => console.error('Erro ao deslogar:', error));
+        if (!response.ok) {
+            // Se o usuário não estiver autenticado, exibe o botão de login e a mensagem padrão
+            document.getElementById('login-button').style.display = 'block';
+            document.getElementById('profile-button').style.display = 'none';
+            if (impactPhrase) {
+                impactPhrase.textContent = "Exercícios personalizados para melhorar sua mobilidade."; // Mensagem para não logado
+                impactPhrase.classList.remove('logged-in'); // Remove a classe se o usuário não estiver logado
+            }
+            return;
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Exibe o nome do usuário e a saudação se estiver logado
+        const boasVindas = document.getElementById('boas-vindas');
+        const impactPhrase = document.getElementById('impact-phrase'); // Busca o elemento da frase
+
+        if (data && boasVindas) {
+            boasVindas.textContent = `👋 Olá, ${data.nome}!`;
+            document.querySelector('.welcome-container').style.display = 'flex'; // Exibe a saudação
+            document.getElementById('login-button').style.display = 'none'; // Oculta o botão de login
+            document.getElementById('profile-button').style.display = 'block'; // Exibe o botão de perfil
+
+            if (impactPhrase) {
+            impactPhrase.textContent = '“Mova-se melhor hoje para viver melhor amanhã.”'; // Mensagem para logado com aspas
+            impactPhrase.classList.add('logged-in'); // Adiciona a classe quando o usuário está logado
+           }
+
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao buscar o nome do usuário:', error);
     });
 
-    // Função para redirecionar para a página de login
-    function redirecionarParaLogin() {
-        window.location.href = 'login.html';
-    }
+// Script para o logout
+document.getElementById('logout-button').addEventListener('click', () => {
+    fetch('/logout')
+        .then(() => window.location.href = 'login.html')
+        .catch(error => console.error('Erro ao deslogar:', error));
+});
+
+// Função para redirecionar para a página de login
+function redirecionarParaLogin() {
+    window.location.href = 'login.html';
+}
+
+// Função para redirecionar para a página de perfil
+function redirecionarParaPerfil() {
+    window.location.href = 'profile.html';
+}
+
+
 </script>
 
     <script src="js/script.js"></script>
