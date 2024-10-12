@@ -333,8 +333,9 @@ button:hover {
     opacity: 1;
 }
 
-/* Responsividade para telas menores */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
+
     .profile-button {
         right: 20px;
         top: 40px;
@@ -356,32 +357,7 @@ button:hover {
         width: 70px; /* Ajusta a largura do tooltip */
         padding: 3px 0;
     }
-}
 
-
-@media (max-width: 480px) {
-    .profile-button {
-        right: 17px;
-        top: 27px;
-        width: 30px; /* Botão menor para celulares */
-        height: 30px;
-        padding: 5px; /* Menor padding para manter o equilíbrio */
-    }
-
-    .profile-button i {
-        display: flex; /* Usando Flexbox */
-        justify-content: center; /* Centraliza o ícone horizontalmente */
-        align-items: center; /* Centraliza o ícone verticalmente */
-        font-size: 14px; /* Ajusta ainda mais o ícone */
-    }
-
-    .profile-button .tooltip-text {
-        display: none; /* Esconder o tooltip em telas muito pequenas para evitar interferência */
-    }
-}
-
-/* RESPONSIVIDADE DE INICIO */
-@media (max-width: 768px) {
     .card-container {
         gap: 60px; /* Reduz o espaçamento entre os cards em telas menores */
         width: 85%;
@@ -462,6 +438,26 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+
+    .profile-button {
+        right: 17px;
+        top: 27px;
+        width: 30px; /* Botão menor para celulares */
+        height: 30px;
+        padding: 5px; /* Menor padding para manter o equilíbrio */
+    }
+
+    .profile-button i {
+        display: flex; /* Usando Flexbox */
+        justify-content: center; /* Centraliza o ícone horizontalmente */
+        align-items: center; /* Centraliza o ícone verticalmente */
+        font-size: 14px; /* Ajusta ainda mais o ícone */
+    }
+
+    .profile-button .tooltip-text {
+        display: none; /* Esconder o tooltip em telas muito pequenas para evitar interferência */
+    }
+    
     .card-container {
         gap: 60px; /* Reduz ainda mais o espaçamento entre os cards */
         width: 80%;
@@ -524,18 +520,12 @@ button:hover {
         padding: 6px 12px; /* Ajusta o tamanho dos botões para dispositivos pequenos */
         font-size: 0.8em; 
     }
-}
 
- /* Quando o usuário não estiver logado */
- @media (max-width: 480px) {
     .impact-phrase {
         font-size: 0.8em;
         margin-bottom: -10px;
     }
-}
 
-/* Quando o usuário estiver logado (aplicando a classe logged-in) */
-@media (max-width: 480px) {
     .impact-phrase.logged-in {
         font-size: 0.8em;
         margin-bottom: 12px;
