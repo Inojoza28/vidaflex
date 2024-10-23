@@ -375,6 +375,9 @@ button:hover {
     }
 
     .login-button i {
+        display: flex; /* Usando Flexbox */
+        justify-content: center; /* Centraliza o ícone horizontalmente */
+        align-items: center; /* Centraliza o ícone verticalmente */
         font-size: 14px; /* Diminui o ícone para manter a proporção */
     }
 
