@@ -475,8 +475,7 @@ button:hover {
     .login-button {
         top: 38%;
         right: 15px; /* Ajusta a posição para dispositivos muito pequenos */
-        padding: 6px 7px; /* Reduz ainda mais o tamanho do botão */
-        font-size: 14px;
+        padding: 8px;
     }
 
     .login-button i {
