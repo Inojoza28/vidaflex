@@ -185,7 +185,19 @@ header h1 {
     font-weight: bold;
     text-align: center;
     margin: 20px 0;
-    color: #2be2cf;
+    color: #37cce7; /* Azul cerúleo mais suave */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra sutil para profundidade */
+}
+
+.time-label {
+    color: #42ca7d; /* Verde esmeralda mais suave */
+    font-style: italic;
+    letter-spacing: 0.5px; /* Melhora a legibilidade */
+}
+
+.preparation-text {
+    color: #fcb653; /* Violeta tradicional */
+    font-weight: 600;
 }
 
 img {

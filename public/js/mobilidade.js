@@ -2,7 +2,7 @@ let interval;
 let preparationInterval;
 let timeLeft;
 let isPaused = false;
-let preparationTime = 12; // Tempo de preparação antes de iniciar o exercício
+let preparationTime = 15; // Tempo de preparação antes de iniciar o exercício
 
 // Função para iniciar o exercício e virar o card
 function iniciarExercicio(button) {
@@ -25,7 +25,7 @@ function iniciarExercicio(button) {
 
 // Função para iniciar o tempo de preparação
 function startPreparation(card) {
-    preparationTime = 12; // Define o tempo de preparação inicial
+    preparationTime = 15; // Define o tempo de preparação inicial
     const timerDisplay = card.querySelector('.timer');
     const controlButtons = card.querySelector('.control-buttons');
     controlButtons.style.display = 'none'; // Esconde os botões durante a preparação
@@ -47,7 +47,7 @@ function startPreparation(card) {
 // Função para exibir a contagem regressiva de preparação
 function updatePreparationDisplay(card) {
     const timerDisplay = card.querySelector('.timer');
-    timerDisplay.textContent = `Prepare-se: 00:${preparationTime < 10 ? '0' : ''}${preparationTime}`;
+    timerDisplay.innerHTML = `<span class="preparation-text">Prepare-se:</span> 00:${preparationTime < 10 ? '0' : ''}${preparationTime}`;
 }
 
 // Função para iniciar o temporizador do exercício
@@ -105,7 +105,7 @@ function reiniciarTempo() {
 // Atualiza a exibição do temporizador do exercício
 function updateTimerDisplay(card) {
     const timerDisplay = card.querySelector('.timer');
-    timerDisplay.textContent = `Tempo: 00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+    timerDisplay.innerHTML = `<span class="time-label">Tempo:</span> 00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
 }
 
 // Função para fechar o card e parar o temporizador

@@ -1,0 +1,119 @@
+/* Ícone de Informação */
+.info-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    background-color: #058275;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.info-icon:hover {
+    background-color: #1d1149;
+    transform: scale(1.1);
+}
+
+.info-icon i {
+    font-size: 1.4rem;
+}
+
+/* Tooltip do Ícone */
+.info-tooltip {
+    visibility: hidden;
+    width: 100px;
+    background-color: #1d1149;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.info-icon:hover .info-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Modal de Informações */
+.info-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: #f8ffff;
+    margin: 15% auto;
+    padding: 25px;
+    border: 2px solid #058275;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #1d1149;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #058275;
+}
+
+.modal-content h3 {
+    color: #1d1149;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #058275;
+    padding-bottom: 10px;
+}
+
+.modal-content p {
+    color: #333;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .info-icon {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        width: 80%;
+    }
+}

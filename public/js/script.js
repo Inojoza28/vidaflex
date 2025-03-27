@@ -48,3 +48,18 @@ window.addEventListener('load', function() {
     const impactPhrase = document.querySelector('.impact-phrase');
     impactPhrase.classList.add('show'); // Adiciona a classe para iniciar a animação
 });
+
+
+// MODAL DE INFORMAÇÕES
+function toggleInfoModal() {
+    const modal = document.getElementById('infoModal');
+    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+}
+
+// Fechar modal ao clicar fora
+window.onclick = function(event) {
+    const modal = document.getElementById('infoModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
